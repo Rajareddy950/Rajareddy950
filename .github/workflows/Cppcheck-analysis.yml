@@ -1,0 +1,20 @@
+name: Cppcheck Analysis
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: install-Cppcheck
+      run: sudo apt-get install Cppcheck
+    - name: Analyse
+      run: Cppcheck --enable=all 3_implementation
+   
